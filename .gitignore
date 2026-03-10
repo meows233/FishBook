@@ -1,0 +1,16 @@
+# 编译输出
+build/
+out/
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# 系统文件
+.DS_Store
+Thumbs.db
