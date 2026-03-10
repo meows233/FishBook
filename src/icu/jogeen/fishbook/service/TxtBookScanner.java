@@ -23,8 +23,7 @@ public class TxtBookScanner implements BookScanner {
     private RandomAccessFile ra = null;
     private long[] offsetIndex;
     private long totalLines;
-
-
+    private Charset charset;
 
     File file = null;
 
@@ -33,10 +32,12 @@ public class TxtBookScanner implements BookScanner {
         if (!file.exists() || !file.isFile()) {
             return;
         }
+        this.charset = CharsetDetector.detect(filePath);
         Path path = Paths.get(file.getPath());
         try {
-            Stream<String> countStream = Files.lines(path, Charset.forName("utf-8"));
-            totalLines = countStream.count();
+            try (Stream<String> countStream = Files.lines(path, charset)) {
+                totalLines = countStream.count();
+            }
             offsetIndex = new long[Integer.parseInt(totalLines + "")];
 
             this.filePath = filePath;
@@ -51,6 +52,10 @@ public class TxtBookScanner implements BookScanner {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Charset getCharset() {
+        return charset;
     }
 
     @Override
@@ -81,7 +86,10 @@ public class TxtBookScanner implements BookScanner {
                 pageSize=((Long)(totalLines-index)).intValue();
             }
             for (int i = 0; i < pageSize; i++) {
-                list.add(new String(ra.readLine().getBytes("ISO-8859-1"), "utf-8"));
+                String line = ra.readLine();
+                if (line != null) {
+                    list.add(new String(line.getBytes("ISO-8859-1"), charset));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

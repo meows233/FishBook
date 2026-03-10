@@ -29,6 +29,8 @@ public class PersistentState implements PersistentStateComponent<Element> {
 
     private Integer pageSize=10;
 
+    private String charset="UTF-8";
+
     public PersistentState() {
     }
 
@@ -47,6 +49,7 @@ public class PersistentState implements PersistentStateComponent<Element> {
         element.setAttribute("bookPathText",bookPathText);
         element.setAttribute("pageNum",pageNum+"");
         element.setAttribute("pageSize",pageSize+"");
+        element.setAttribute("charset",charset);
         return element;
     }
 
@@ -58,6 +61,9 @@ public class PersistentState implements PersistentStateComponent<Element> {
 
         String pageSizeStr = element.getAttributeValue("pageSize");
         this.pageSize=pageSizeStr==null?pageSize:Integer.valueOf(pageSizeStr);
+
+        String charsetStr = element.getAttributeValue("charset");
+        this.charset=charsetStr==null?charset:charsetStr;
 
     }
 
@@ -85,6 +91,15 @@ public class PersistentState implements PersistentStateComponent<Element> {
 
     public PersistentState setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+        return this;
+    }
+
+    public String getCharset() {
+        return charset;
+    }
+
+    public PersistentState setCharset(String charset) {
+        this.charset = charset;
         return this;
     }
 }

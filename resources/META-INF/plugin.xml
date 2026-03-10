@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>icu.jogeen.fishbook.id</id>
     <name>FishBook</name>
-    <version>1.3</version>
+    <version>1.4</version>
     <vendor email="jogeen@qq.com" url="https://github.com/jogeen/FishBook">jogeen</vendor>
 
     <description>It allows you to read novels on your local hard drive and get a reading experience like a Kindle. It can remember your reading progress like a bookmark, so that you can continue to read next time, and provides page turning function.

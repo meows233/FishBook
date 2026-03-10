@@ -41,7 +41,11 @@ public class BookScannerBuilder {
         NotificationGroup notificationGroup = new NotificationGroup("fishid", NotificationDisplayType.BALLOON, false);
         Notification notification = notificationGroup.createNotification("初始化书籍,可能需要几秒钟!", MessageType.INFO);
         Notifications.Bus.notify(notification);
-        bookScaner = new TxtBookScanner(bookPath);
+        TxtBookScanner scanner = new TxtBookScanner(bookPath);
+        bookScaner = scanner;
+        if (scanner.getCharset() != null) {
+            persistentState.setCharset(scanner.getCharset().name());
+        }
         return false;
     }
 
