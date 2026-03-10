@@ -9,6 +9,13 @@
 - 支持翻页：首页、上一页、下一页、末页、跳转指定页
 - 支持左右方向键快速翻页
 - 可自定义每页显示行数
+- 搜索框内输入文字后，点击搜索按钮时搜索输入框中的内容并跳转到搜索到的位置，再次点击搜索按钮跳转到下一个匹配到的位置。点击回退按钮返回到首次搜索前的原始位置
+
+## 这个fork做了什么
+
+- 增加了gbk编码的支持。原项目已经很久没有更新，但是仅支持UTF-8格式，使用其他编码会导入失败。修改后目前导入书籍时会自动识别编码，根据UTF-8-》GBK的方式进行匹配。
+- 增加了Gradle支持。将项目从 DevKit 模式迁移为 Gradle 构建，无需下载idea，支持命令行编译生成 IDEA 插件；
+- 删除用不到的首页和末页按钮，增加搜索功能。
 
 ## 构建
 
@@ -23,7 +30,7 @@
 ./gradlew buildPlugin
 ```
 
-构建成功后，插件包生成在 `build/distributions/FishBook-1.3.zip`。
+构建成功后，插件包生成在 `build/distributions/FishBook-x.x.zip`。
 
 ### 其他常用命令
 
@@ -43,7 +50,7 @@
 1. 打开 IntelliJ IDEA
 2. 进入 **Settings** → **Plugins**
 3. 点击齿轮图标 ⚙️ → **Install Plugin from Disk...**
-4. 选择 `build/distributions/FishBook-1.3.zip`
+4. 选择 `build/distributions/FishBook-x.x.zip`
 5. 重启 IDE
 
 ## 使用方法

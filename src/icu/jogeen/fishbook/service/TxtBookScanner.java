@@ -97,6 +97,25 @@ public class TxtBookScanner implements BookScanner {
         return list;
     }
 
+    @Override
+    public int searchNextLine(String keyword, int fromLine) {
+        try {
+            for (int i = fromLine; i < totalLines; i++) {
+                ra.seek(offsetIndex[i]);
+                String line = ra.readLine();
+                if (line != null) {
+                    String content = new String(line.getBytes("ISO-8859-1"), charset);
+                    if (content.contains(keyword)) {
+                        return i;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         TxtBookScanner txtBookScaner = new TxtBookScanner("C:\\Users\\Administrator\\Downloads\\十日谈.txt");
 

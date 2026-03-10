@@ -8,52 +8,24 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="aeab4" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="aeab4" layout-manager="FlowLayout" hgap="3" vgap="1" flow-align="0">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="5b5b6" class="javax.swing.JButton" binding="btnFirst">
+          <component id="3a68a" class="javax.swing.JTextField" binding="tfPageNum">
             <constraints/>
             <properties>
-              <text value="|&lt;&lt;"/>
+              <columns value="5"/>
+              <text value=""/>
             </properties>
           </component>
-          <component id="dab76" class="javax.swing.JButton" binding="btnPre">
-            <constraints/>
-            <properties>
-              <text value="&lt;"/>
-              <toolTipText value="←"/>
-            </properties>
-          </component>
-          <component id="eed58" class="javax.swing.JButton" binding="btnNext">
-            <constraints/>
-            <properties>
-              <text value="&gt;"/>
-              <toolTipText value="→"/>
-            </properties>
-          </component>
-          <component id="6f5e8" class="javax.swing.JButton" binding="btnLast">
-            <constraints/>
-            <properties>
-              <text value="&gt;&gt;|"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <grid id="a6c56" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
           <component id="80d2c" class="javax.swing.JLabel">
             <constraints/>
             <properties>
-              <text value="Total:"/>
+              <text value="/"/>
             </properties>
           </component>
           <component id="ee34" class="javax.swing.JLabel" binding="labTotalPages">
@@ -62,20 +34,62 @@
               <text value="0"/>
             </properties>
           </component>
-          <component id="3a68a" class="javax.swing.JTextField" binding="tfPageNum">
-            <constraints/>
-            <properties/>
-          </component>
           <component id="f3a37" class="javax.swing.JButton" binding="btnJump">
             <constraints/>
             <properties>
-              <text value="Jump"/>
+              <text value="Go"/>
+              <margin top="1" left="4" bottom="1" right="4"/>
+            </properties>
+          </component>
+          <component id="dab76" class="javax.swing.JButton" binding="btnPre">
+            <constraints/>
+            <properties>
+              <text value="&lt;"/>
+              <toolTipText value="←"/>
+              <margin top="1" left="4" bottom="1" right="4"/>
+            </properties>
+          </component>
+          <component id="eed58" class="javax.swing.JButton" binding="btnNext">
+            <constraints/>
+            <properties>
+              <text value="&gt;"/>
+              <toolTipText value="→"/>
+              <margin top="1" left="4" bottom="1" right="4"/>
             </properties>
           </component>
           <component id="58f81" class="javax.swing.JLabel" binding="labBookName">
             <constraints/>
             <properties>
               <text value="******"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="a6c56" layout-manager="FlowLayout" hgap="3" vgap="1" flow-align="0">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a1b2c" class="javax.swing.JTextField" binding="tfSearch">
+            <constraints/>
+            <properties>
+              <columns value="10"/>
+            </properties>
+          </component>
+          <component id="d3e4f" class="javax.swing.JButton" binding="btnSearch">
+            <constraints/>
+            <properties>
+              <text value="搜索"/>
+              <margin top="1" left="4" bottom="1" right="4"/>
+            </properties>
+          </component>
+          <component id="g5h6i" class="javax.swing.JButton" binding="btnBack">
+            <constraints/>
+            <properties>
+              <text value="回退"/>
+              <margin top="1" left="4" bottom="1" right="4"/>
             </properties>
           </component>
         </children>
