@@ -38,6 +38,9 @@ public class ReadUI {
     private int originalPageNum = -1;
     private String lastSearchKeyword = "";
 
+    // 内容显示状态（小键盘 0 切换隐藏/显示）
+    private boolean contentVisible = true;
+
     private void initBookScanner() {
         BookScanner scanner = BookScannerBuilder.getBookScaner();
         if (scanner == null) {
@@ -118,6 +121,9 @@ public class ReadUI {
                     turnPage(persistentState.getPageNum() - 1);
                 } else if (39 == keyCode) {
                     turnPage(persistentState.getPageNum() + 1);
+                } else if (KeyEvent.VK_NUMPAD0 == keyCode) {
+                    // 小键盘 0：隐藏/恢复阅读内容
+                    toggleContentVisible();
                 }
             }
         });
@@ -216,6 +222,22 @@ public class ReadUI {
             txContetnt.setText(sb.toString());
         });
         tfPageNum.setText(i + "");
+        // 隐藏状态下翻页不显示内容
+        if (!contentVisible) {
+            txContetnt.setText("");
+        }
+    }
+
+    /**
+     * 小键盘 0：隐藏阅读内容，再次按下恢复显示
+     */
+    private void toggleContentVisible() {
+        contentVisible = !contentVisible;
+        if (contentVisible) {
+            turnPage(persistentState.getPageNum());
+        } else {
+            txContetnt.setText("");
+        }
     }
 
     public JPanel getJcontent() {
